@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -50,4 +51,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :notes => [])
   end
 end
-
