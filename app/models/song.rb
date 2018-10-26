@@ -13,15 +13,16 @@ class Song < ActiveRecord::Base
     self.genre_name
   end    
 
-  def artist_name
-    #self.artist_name
-    
-  end
   
   def artist_name=(name)
     artist = Artist.find_or_create_by(name: name)
     self.artist = artist
   end
+
+  def artist_name
+    #self.artist_name
+  end
+  
 
   def note_contents=(notes)
     notes.each do |content|
