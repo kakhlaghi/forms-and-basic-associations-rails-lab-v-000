@@ -19,9 +19,17 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist_name
+    self.artist ? self.artist.name : nil 
   end
 
+
+  def category_name=(name)
+       self.category = Category.find_or_create_by(name: name)
+     end
+   
+     def category_name
+        self.category ? self.category.name : nil
+     end
 
   def note_contents=(notes)
     notes.each do |content|
